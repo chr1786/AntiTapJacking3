@@ -1,0 +1,79 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"TapjackingProtectionPlugin\"><param name=\"android-package\" value=\"com.bedefended.tapjackingprotection.TapjackingProtectionPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"packagemanager\"><param name=\"android-package\" value=\"fc.fcstudio.packagemanager\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.GET_TASKS\" />",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"ExitApp\"><param name=\"android-package\" value=\"org.apache.cordova.exitapp.ExitApp\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-tapjackingprotection": {
+      "PACKAGE_NAME": "com.andy.antitapjacking3"
+    },
+    "cordova-plugin-packagemanager": {
+      "PACKAGE_NAME": "com.andy.antitapjacking3"
+    },
+    "cordova-plugin-app-exit": {
+      "PACKAGE_NAME": "com.andy.antitapjacking3"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-plugin-packagemanager.packagemanager",
+      "file": "plugins/cordova-plugin-packagemanager/www/packagemanager.js",
+      "pluginId": "cordova-plugin-packagemanager",
+      "clobbers": [
+        "packagemanager"
+      ]
+    },
+    {
+      "id": "cordova-plugin-app-exit.exitApp",
+      "file": "plugins/cordova-plugin-app-exit/www/ExitApp.js",
+      "pluginId": "cordova-plugin-app-exit",
+      "merges": [
+        "navigator.app"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-tapjackingprotection": "0.1.1",
+    "cordova-plugin-packagemanager": "0.1.7",
+    "cordova-plugin-app-exit": "0.0.1"
+  }
+}
