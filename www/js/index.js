@@ -44,8 +44,16 @@ function successCallback(e) {
     }
 
     const arrBlacklist = [
-        'com.urbandroid.lux:Twilight Screen Filter',
-        'com.arrowsapp.nightscreen:Night Screen'
+        'com.urbandroid.lux:Twilight',
+        'jp.ne.hardyinfinity.bluelightfilter.free:Bluelight Filter',
+        'com.paget96.bluelightfilter:Blue Light Filter - Night Light',
+        'com.ascendik.eyeshield:Night Shift',
+        'com.sisomobile.android.brightness:sFilter',
+        'jp.snowlife01.android.bluelightfilter0:Blue light Filter',
+        'com.mlhg.screenfilter:Darker',
+        'com.digipom.nightfilter:Night Filter',
+        'com.github.ericytsang.screenfilter.app.android:Screen Dimmer',
+        'com.yaojian.protecteye:Eye Protect'
     ];
 
     let arrAppsFound = [];
