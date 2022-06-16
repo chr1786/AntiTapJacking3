@@ -91,9 +91,25 @@ public class SystemWebView extends WebView implements CordovaWebViewEngine.Engin
     /* Start : Added By CHR, June 13, 2022 */
     @Override
     public boolean onFilterTouchEventForSecurity(MotionEvent event) {
-        Log.v("Cordova.SystemWebView", "onFilterTouchEventForSecurity() is invoked : event.getFlags() -> " + event.getFlags() + ", MotionEvent.FLAG_WINDOW_IS_OBSCURED -> " + MotionEvent.FLAG_WINDOW_IS_OBSCURED + ", MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED -> " + MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED);
 
-        if (event.getFlags() == MotionEvent.FLAG_WINDOW_IS_OBSCURED || event.getFlags() == MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED) {    
+        /* 
+            Untuk menghindari isu kompatibilitas karena target API Level, maka untuk perbandingan tidak menggunakan Enumerasi, melainkan 
+            langsung nilai integer-nya.
+
+            Constant yang digunakan :
+            MotionEvent.FLAG_WINDOW_IS_OBSCURED = 1 (Build.VERSION.SDK_INT >= 9)
+            MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED = 2 (Build.VERSION.SDK_INT >= 29)
+
+            Log.v("Cordova.SystemWebView", "onFilterTouchEventForSecurity() is invoked : event.getFlags() -> " + event.getFlags() + ", MotionEvent.FLAG_WINDOW_IS_OBSCURED -> " + MotionEvent.FLAG_WINDOW_IS_OBSCURED + ", MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED -> " + MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED);
+
+            if (event.getFlags() == MotionEvent.FLAG_WINDOW_IS_OBSCURED || event.getFlags() == MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED) {    
+                return false;
+            }
+        */
+
+        Log.v("Cordova.SystemWebView", "onFilterTouchEventForSecurity() is invoked : event.getFlags() -> " + event.getFlags() + ", MotionEvent.FLAG_WINDOW_IS_OBSCURED -> 1, MotionEvent.FLAG_WINDOW_IS_PARTIALLY_OBSCURED -> 2");
+
+        if (event.getFlags() == 1 || event.getFlags() == 2) {    
             return false;
         }
 
